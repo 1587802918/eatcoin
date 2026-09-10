@@ -1,3 +1,54 @@
 [gd_scene format=3 uid="uid://bt0ay5yghssdq"]
 
-[node name="Node2D" type="Node2D" unique_id=618452259]
+[ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://background.cs" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://c7bporki11yic" path="res://background.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://coinman.png" id="3_epypp"]
+[ext_resource type="Script" uid="uid://ct8f83ereprw7" path="res://Coinman.cs" id="4_0hol4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
+atlas = ExtResource("3_epypp")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("3_epypp")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdubu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epypp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(80, 80)
+
+[node name="main" type="Node2D" unique_id=618452259]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=325089071]
+position = Vector2(360, 640)
+texture = ExtResource("1_wtcfe")
+
+[node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
+script = ExtResource("1_0e48y")
+
+[node name="coinman" type="CharacterBody2D" parent="." unique_id=337793085]
+script = ExtResource("4_0hol4")
+
+[node name="coinman" type="AnimatedSprite2D" parent="coinman" unique_id=1022106614]
+position = Vector2(360, 601)
+sprite_frames = SubResource("SpriteFrames_kdubu")
+autoplay = "default"
+frame = 1
+frame_progress = 0.69148123
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coinman" unique_id=1355855001]
+position = Vector2(360, 600)
+shape = SubResource("RectangleShape2D_wvhbo")

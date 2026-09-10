@@ -11,11 +11,14 @@ config_version=5
 [application]
 
 config/name="eatcoin"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://bt0ay5yghssdq"
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
