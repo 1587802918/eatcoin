@@ -15,7 +15,15 @@ public partial class Coin : Area2D
 		if (body is Coinman coinman)
 		{
 			//coinman.AddScore(Value);
-			QueueFree();
+
+			SetDeferred(Area2D.PropertyName.Monitoring, false);
+
+			Hide();
+
+			var sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+			sfx.Finished += QueueFree;
+			sfx.Play();
+			
 		}
 	}
 }

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
+[ext_resource type="AudioStream" uid="uid://bevbbu2c6thfd" path="res://BGM.wav" id="7_lgr22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -36,7 +37,7 @@ size = Vector2(80, 80)
 size = Vector2(717, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(717, 35.375)
+size = Vector2(719.5, 35.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
 size = Vector2(36.5, 1279)
@@ -55,17 +56,17 @@ texture = ExtResource("2_3dxm6")
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
 script = ExtResource("3_lgr22")
 
-[node name="coinman" type="CharacterBody2D" parent="." unique_id=337793085]
+[node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085]
 script = ExtResource("4_trn2v")
 
-[node name="coinman" type="AnimatedSprite2D" parent="coinman" unique_id=1022106614]
+[node name="CoinMan" type="AnimatedSprite2D" parent="CoinMan" unique_id=1022106614]
 position = Vector2(360, 601)
 sprite_frames = SubResource("SpriteFrames_kdubu")
 autoplay = "default"
 frame = 1
 frame_progress = 0.69148123
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coinman" unique_id=1355855001]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinMan" unique_id=1355855001]
 position = Vector2(360, 600)
 shape = SubResource("RectangleShape2D_wvhbo")
 
@@ -76,7 +77,7 @@ position = Vector2(360.5, -12)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039237227]
-position = Vector2(361, 1300.3125)
+position = Vector2(359.75, 1300.3125)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=573178759]
@@ -86,3 +87,7 @@ shape = SubResource("RectangleShape2D_kdubu")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=84122307]
 position = Vector2(735.25, 638.5)
 shape = SubResource("RectangleShape2D_abi3o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=230211435]
+stream = ExtResource("7_lgr22")
+autoplay = true

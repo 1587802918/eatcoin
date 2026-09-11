@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj3cm4mt61pf6" path="res://Coin.cs" id="1_ou7jl"]
 [ext_resource type="Texture2D" uid="uid://5dpppqsmwx5h" path="res://Coin.png" id="2_ufda5"]
+[ext_resource type="AudioStream" uid="uid://dn4cva36pdpqq" path="res://GetCoin.wav" id="3_ufda5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifow5"]
 radius = 35.0
@@ -53,3 +54,6 @@ sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
 frame = 3
 frame_progress = 0.5033236
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=14531439]
+stream = ExtResource("3_ufda5")
