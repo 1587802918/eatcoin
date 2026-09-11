@@ -30,6 +30,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 size = Vector2(80, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(717, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(717, 35.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(36.5, 1279)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abi3o"]
+size = Vector2(25.5, 1281)
+
 [node name="main" type="Node2D" unique_id=618452259]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=325089071]
@@ -52,3 +64,21 @@ frame_progress = 0.69148123
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coinman" unique_id=1355855001]
 position = Vector2(360, 600)
 shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=882143864]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2030850078]
+position = Vector2(360.5, -11.5)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039237227]
+position = Vector2(361, 1300.3125)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=573178759]
+position = Vector2(-20.75, 636.5)
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=84122307]
+position = Vector2(735.25, 638.5)
+shape = SubResource("RectangleShape2D_abi3o")
