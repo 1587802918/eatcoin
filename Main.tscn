@@ -105,17 +105,19 @@ texture = ExtResource("2_3dxm6")
 script = ExtResource("3_lgr22")
 
 [node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085]
+position = Vector2(201, 606)
+up_direction = Vector2(0.009999501, 0.99995005)
 script = ExtResource("4_trn2v")
 
 [node name="CoinMan" type="AnimatedSprite2D" parent="CoinMan" unique_id=1022106614]
-position = Vector2(360, 601)
+position = Vector2(1, -7)
 sprite_frames = SubResource("SpriteFrames_kdubu")
 autoplay = "default"
 frame = 1
 frame_progress = 0.69148123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinMan" unique_id=1355855001]
-position = Vector2(360, 600)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_wvhbo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=882143864]
@@ -137,19 +139,21 @@ position = Vector2(735.25, 638.5)
 shape = SubResource("RectangleShape2D_abi3o")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=230211435]
+position = Vector2(0, -1)
 stream = ExtResource("7_lgr22")
 autoplay = true
 
 [node name="WWMan" type="CharacterBody2D" parent="." unique_id=119231293 node_paths=PackedStringArray("Player")]
+position = Vector2(199, 202)
 script = ExtResource("8_03owx")
 Player = NodePath("../CoinMan")
 
 [node name="WWMan" type="AnimatedSprite2D" parent="WWMan" unique_id=1607116469]
-position = Vector2(360, 361)
+position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
-frame_progress = 0.6968791
+frame_progress = 0.6060252
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WWMan" unique_id=1405661976]
-position = Vector2(361, 361)
+position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_c2ibq")

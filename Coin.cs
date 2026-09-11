@@ -12,7 +12,7 @@ public partial class Coin : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body is Coinman coinman || body is WwMan wwman)
+		if (body is Coinman coinman )
 		{
 			//coinman.AddScore(Value);
 
@@ -24,6 +24,11 @@ public partial class Coin : Area2D
 			sfx.Finished += QueueFree;
 			sfx.Play();
 
+		}else if(body is WwMan wwman)
+		{
+			SetDeferred(Area2D.PropertyName.Monitoring, false);
+
+			Hide();
 		}
 	}
 
