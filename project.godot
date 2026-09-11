@@ -13,7 +13,6 @@ config_version=5
 config/name="eatcoin"
 run/main_scene="uid://bt0ay5yghssdq"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 

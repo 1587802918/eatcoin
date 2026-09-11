@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://bt0ay5yghssdq"]
 
-[ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="1_0e48y"]
-[ext_resource type="Texture2D" uid="uid://c7bporki11yic" path="res://background.png" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://coinman.png" id="3_epypp"]
-[ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://b3bufadclo2a1" path="res://Main.cs" id="1_fos0i"]
+[ext_resource type="Texture2D" uid="uid://c7bporki11yic" path="res://Background.png" id="2_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://djey2d7ensb2f" path="res://Coin.tscn" id="2_lgr22"]
+[ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
+[ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
+[ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
-atlas = ExtResource("3_epypp")
+atlas = ExtResource("5_03owx")
 region = Rect2(0, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("3_epypp")
+atlas = ExtResource("5_03owx")
 region = Rect2(80, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kdubu"]
@@ -31,7 +33,7 @@ animations = [{
 size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(717, 23)
+size = Vector2(717, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(717, 35.375)
@@ -43,16 +45,18 @@ size = Vector2(36.5, 1279)
 size = Vector2(25.5, 1281)
 
 [node name="main" type="Node2D" unique_id=618452259]
+script = ExtResource("1_fos0i")
+_coinScene = ExtResource("2_lgr22")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=325089071]
 position = Vector2(360, 640)
-texture = ExtResource("1_wtcfe")
+texture = ExtResource("2_3dxm6")
 
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
-script = ExtResource("1_0e48y")
+script = ExtResource("3_lgr22")
 
 [node name="coinman" type="CharacterBody2D" parent="." unique_id=337793085]
-script = ExtResource("4_0hol4")
+script = ExtResource("4_trn2v")
 
 [node name="coinman" type="AnimatedSprite2D" parent="coinman" unique_id=1022106614]
 position = Vector2(360, 601)
@@ -68,7 +72,7 @@ shape = SubResource("RectangleShape2D_wvhbo")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=882143864]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2030850078]
-position = Vector2(360.5, -11.5)
+position = Vector2(360.5, -12)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039237227]

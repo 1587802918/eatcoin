@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dela8iseqyv31"
-path="res://.godot/imported/coinman.png-0a427c6f0ba51ae7a4a5cbda4b041b06.ctex"
+path="res://.godot/imported/Coinman.png-95aa6ac89748778efb6f351851b3f7f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://coinman.png"
-dest_files=["res://.godot/imported/coinman.png-0a427c6f0ba51ae7a4a5cbda4b041b06.ctex"]
+source_file="res://Coinman.png"
+dest_files=["res://.godot/imported/Coinman.png-95aa6ac89748778efb6f351851b3f7f4.ctex"]
 
 [params]
 
