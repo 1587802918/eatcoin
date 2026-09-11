@@ -3,7 +3,7 @@ using System;
 
 [Tool]
 
-public partial class background : Node2D
+public partial class Background : Node2D
 {
 	public int GridWidth = 9;
 	public int GridHeight = 16;

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bt0ay5yghssdq"]
 
-[ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://background.cs" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://c7bporki11yic" path="res://background.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://coinman.png" id="3_epypp"]
-[ext_resource type="Script" uid="uid://ct8f83ereprw7" path="res://Coinman.cs" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_0hol4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("3_epypp")

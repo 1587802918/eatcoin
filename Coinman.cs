@@ -3,38 +3,30 @@ using System;
 
 public partial class Coinman : CharacterBody2D
 {
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	public float StepSize = 80.0f;
 
-	public override void _PhysicsProcess(double delta)
+	public override void _UnhandledInput(InputEvent @event)
 	{
-		Vector2 velocity = Velocity;
+		Vector2 step = Vector2.Zero;
 
-		// Add the gravity.
-		if (!IsOnFloor())
+		if(Input.IsActionPressed("move_right"))
 		{
-			velocity += GetGravity() * (float)delta;
+			step.X = StepSize;
 		}
-
-		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if(Input.IsActionPressed("move_left"))
 		{
-			velocity.Y = JumpVelocity;
+			step.X = -StepSize;
 		}
-
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		if(Input.IsActionPressed("move_up"))
 		{
-			velocity.X = direction.X * Speed;
+			step.Y = -StepSize;
 		}
-		else
+		if(Input.IsActionPressed("move_down"))
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			step.Y = StepSize;
 		}
-
-		Velocity = velocity;
-		MoveAndSlide();
+		if(step != Vector2.Zero){
+			Position += step;
+		}
 	}
 }
