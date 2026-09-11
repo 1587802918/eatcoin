@@ -25,6 +25,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="eatcoin"
 
+[global_group]
+
+coins=""
+
 [input]
 
 move_left={

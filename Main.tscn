@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bevbbu2c6thfd" path="res://BGM.wav" id="7_lgr22"]
 [ext_resource type="Script" uid="uid://5ket2k4vrt6p" path="res://WwMan.cs" id="8_03owx"]
 [ext_resource type="Texture2D" uid="uid://ysl8epobjtvq" path="res://WWM.PNG" id="8_trn2v"]
+[ext_resource type="AudioStream" uid="uid://chxcy535loclp" path="res://wwm_audio.wav" id="10_20pc6"]
+[ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameOverUi.cs" id="10_wkp8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -153,8 +155,35 @@ position = Vector2(1, 0)
 scale = Vector2(1, 0.975)
 sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
-frame_progress = 0.16476625
+frame_progress = 0.5491235
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WWMan" unique_id=1405661976]
 position = Vector2(1.5, -2)
 shape = SubResource("RectangleShape2D_c2ibq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WWMan" unique_id=596771029]
+stream = ExtResource("10_20pc6")
+
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=185254367]
+visible = false
+script = ExtResource("10_wkp8b")
+
+[node name="Panel" type="Panel" parent="GameOverUI" unique_id=1064361567]
+offset_left = 333.0
+offset_top = 472.0
+offset_right = 373.0
+offset_bottom = 512.0
+
+[node name="Label" type="Label" parent="GameOverUI/Panel" unique_id=770883797]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "算你过关"
+
+[node name="Button" type="Button" parent="GameOverUI/Panel" unique_id=1092210400]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 54.0
+offset_right = 71.0
+offset_bottom = 85.0
+text = "再来一次吧"

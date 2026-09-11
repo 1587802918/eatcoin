@@ -43,7 +43,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D" unique_id=1421556322]
+[node name="Area2D" type="Area2D" unique_id=1421556322 groups=["coins"]]
 script = ExtResource("1_ou7jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=661019655]
@@ -52,8 +52,7 @@ shape = SubResource("CircleShape2D_ifow5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=814587520]
 sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
-frame = 3
-frame_progress = 0.5033236
+frame_progress = 0.02909757
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=14531439]
 stream = ExtResource("3_ufda5")

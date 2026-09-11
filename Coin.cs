@@ -7,6 +7,7 @@ public partial class Coin : Area2D
 
 	public override void _Ready()
 	{
+		AddToGroup("coins");
 		BodyEntered += OnBodyEntered;
 	}
 
@@ -19,16 +20,23 @@ public partial class Coin : Area2D
 			SetDeferred(Area2D.PropertyName.Monitoring, false);
 
 			Hide();
-
+			RemoveFromGroup("coins");
+			int remainingCoins = GetTree().GetNodesInGroup("coins").Count;
+			if(remainingCoins == 0)
+			{
+				var gameOverUi = GetTree().Root.FindChild("GameOverUI", true, false) as GameOverUi;
+				gameOverUi.ShowGameOver();
+			}
 			var sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 			sfx.Finished += QueueFree;
 			sfx.Play();
+			
 
 		}else if(body is WwMan wwman)
 		{
 			SetDeferred(Area2D.PropertyName.Monitoring, false);
-
 			Hide();
+			RemoveFromGroup("coins");
 		}
 	}
 

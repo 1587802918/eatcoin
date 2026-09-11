@@ -12,14 +12,17 @@ public partial class WwMan : CharacterBody2D
 	private double _timer;
 	private readonly Vector2[] _directions = new Vector2[]{Vector2.Up,Vector2.Down,Vector2.Left,Vector2.Right};
 	private readonly Vector2 _gridOffset = new Vector2(40f, 40f);
+	private AudioStreamPlayer2D sfx;
+
 	public override void _Ready()
 	{
 		_sprite = GetNode<AnimatedSprite2D>("WWMan");
+		sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if(Player == null || (_timer += delta) < 0.5)
+		if(Player == null || (_timer += delta) < 0.3)
 		{
 			return;
 		}
@@ -30,6 +33,10 @@ public partial class WwMan : CharacterBody2D
 			GD.Print($"start: {start}, end: {end}");
 			if(start == end)
 			{
+				if(!sfx.IsPlaying())
+				{
+					sfx.Play();
+				}
 				return;
 			}
 			Vector2 step = Vector2.Zero;
