@@ -12,7 +12,7 @@ public partial class Coin : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body is Coinman coinman)
+		if (body is Coinman coinman || body is WwMan wwman)
 		{
 			//coinman.AddScore(Value);
 
@@ -23,7 +23,9 @@ public partial class Coin : Area2D
 			var sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 			sfx.Finished += QueueFree;
 			sfx.Play();
-			
+
 		}
 	}
+
+	
 }
