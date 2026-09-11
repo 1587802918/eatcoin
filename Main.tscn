@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
 [ext_resource type="AudioStream" uid="uid://bevbbu2c6thfd" path="res://BGM.wav" id="7_lgr22"]
+[ext_resource type="Texture2D" uid="uid://ysl8epobjtvq" path="res://WWM.PNG" id="8_trn2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -44,6 +45,52 @@ size = Vector2(36.5, 1279)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abi3o"]
 size = Vector2(25.5, 1281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03owx"]
+atlas = ExtResource("8_trn2v")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkp8b"]
+atlas = ExtResource("8_trn2v")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20pc6"]
+atlas = ExtResource("8_trn2v")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vvyt"]
+atlas = ExtResource("8_trn2v")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6i3y"]
+atlas = ExtResource("8_trn2v")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvhbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03owx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkp8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20pc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6i3y")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ibq"]
+size = Vector2(80, 80)
 
 [node name="main" type="Node2D" unique_id=618452259]
 script = ExtResource("1_fos0i")
@@ -91,3 +138,14 @@ shape = SubResource("RectangleShape2D_abi3o")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=230211435]
 stream = ExtResource("7_lgr22")
 autoplay = true
+
+[node name="WWMan" type="CharacterBody2D" parent="." unique_id=119231293]
+
+[node name="WWMan" type="AnimatedSprite2D" parent="WWMan" unique_id=1607116469]
+position = Vector2(360, 361)
+sprite_frames = SubResource("SpriteFrames_wvhbo")
+frame_progress = 0.54598236
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WWMan" unique_id=1405661976]
+position = Vector2(361, 361)
+shape = SubResource("RectangleShape2D_c2ibq")

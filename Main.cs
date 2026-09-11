@@ -21,4 +21,6 @@ public partial class Main : Node2D
 		coin.Position = spawnPosition;
 		AddChild(coin);
 	}
+
+
 }
