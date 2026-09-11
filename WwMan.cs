@@ -27,7 +27,7 @@ public partial class WwMan : CharacterBody2D
 			_timer = 0;
 			Vector2 start = (GlobalPosition-_gridOffset).Snapped(Vector2.One * StepSize)+_gridOffset;
 			Vector2 end = (Player.GlobalPosition-_gridOffset).Snapped(Vector2.One * StepSize)+_gridOffset;
-			GD.Print($"Start: {start}, End: {end}");
+			GD.Print($"start: {start}, end: {end}");
 			if(start == end)
 			{
 				return;
@@ -80,7 +80,6 @@ public partial class WwMan : CharacterBody2D
 				}
 				else {
 					_sprite.FlipH = false;
-					_sprite.Rotation = step.Angle();	
 				}
 			}
 		}

@@ -91,7 +91,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ibq"]
-size = Vector2(80, 80)
+size = Vector2(75, 76)
 
 [node name="main" type="Node2D" unique_id=618452259]
 script = ExtResource("1_fos0i")
@@ -149,11 +149,12 @@ script = ExtResource("8_03owx")
 Player = NodePath("../CoinMan")
 
 [node name="WWMan" type="AnimatedSprite2D" parent="WWMan" unique_id=1607116469]
-position = Vector2(1, -1)
+position = Vector2(1, 0)
+scale = Vector2(1, 0.975)
 sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
-frame_progress = 0.6060252
+frame_progress = 0.16476625
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WWMan" unique_id=1405661976]
-position = Vector2(1, -2)
+position = Vector2(1.5, -2)
 shape = SubResource("RectangleShape2D_c2ibq")
