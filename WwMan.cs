@@ -77,17 +77,45 @@ public partial class WwMan : CharacterBody2D
 				
 				step = node - start;
 			}
-			if(step != Vector2.Zero)
+			if(step != Vector2.Zero )
 			{
-				Position += step;
-				if(step.X < 0)
+				bool canMove = false;
+				KinematicCollision2D collision = MoveAndCollide(step, testOnly:true);
+				if(collision != null)
 				{
-					_sprite.FlipH = true;
-					_sprite.Rotation = 0;
+					GD.Print($"Collision: {collision.GetCollider()}");
+					if(collision.GetCollider() is Coinman || (collision.GetCollider() as Node).IsInGroup("Player"))
+					{
+						GD.Print("Collided with Coinman");
+						if(start + step == end)
+						{
+							GD.Print("Collided with Coinman and can move to end");
+							// Handle collision with Coinman here
+							canMove = true;
+
+						}
+					}
+					else
+					{
+						GD.Print("is wall");
+					}
+				}else
+				{
+					canMove = true;
 				}
-				else {
-					_sprite.FlipH = false;
-				}
+				if(canMove)
+				{
+					Position += step;
+					if(step.X < 0)
+					{
+						_sprite.FlipH = true;
+						_sprite.Rotation = 0;
+					}
+					else {
+						_sprite.FlipH = false;
+					}
+				}	
+				
 			}
 		}
 	}

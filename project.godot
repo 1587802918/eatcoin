@@ -28,6 +28,7 @@ project/assembly_name="eatcoin"
 [global_group]
 
 coins=""
+player=""
 
 [input]
 

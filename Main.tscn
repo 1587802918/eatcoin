@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
+[ext_resource type="Texture2D" uid="uid://dtymlqpl66yh" path="res://wall.png" id="7_5vvyt"]
 [ext_resource type="AudioStream" uid="uid://bevbbu2c6thfd" path="res://BGM.wav" id="7_lgr22"]
 [ext_resource type="Script" uid="uid://5ket2k4vrt6p" path="res://WwMan.cs" id="8_03owx"]
 [ext_resource type="Texture2D" uid="uid://ysl8epobjtvq" path="res://WWM.PNG" id="8_trn2v"]
@@ -35,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
-size = Vector2(80, 80)
+size = Vector2(76, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(717, 22)
@@ -48,6 +49,14 @@ size = Vector2(36.5, 1279)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abi3o"]
 size = Vector2(25.5, 1281)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_20pc6"]
+a = Vector2(280.25, 0)
+b = Vector2(-278.75, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5vvyt"]
+a = Vector2(277, 0)
+b = Vector2(-278, -1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03owx"]
 atlas = ExtResource("8_trn2v")
@@ -106,7 +115,7 @@ texture = ExtResource("2_3dxm6")
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
 script = ExtResource("3_lgr22")
 
-[node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085]
+[node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085 groups=["player"]]
 position = Vector2(201, 606)
 up_direction = Vector2(0.009999501, 0.99995005)
 script = ExtResource("4_trn2v")
@@ -119,7 +128,7 @@ frame = 1
 frame_progress = 0.69148123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinMan" unique_id=1355855001]
-position = Vector2(0, -6)
+position = Vector2(-1, -6)
 shape = SubResource("RectangleShape2D_wvhbo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=882143864]
@@ -139,6 +148,26 @@ shape = SubResource("RectangleShape2D_kdubu")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=84122307]
 position = Vector2(735.25, 638.5)
 shape = SubResource("RectangleShape2D_abi3o")
+
+[node name="wall" type="StaticBody2D" parent="StaticBody2D" unique_id=570191351]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/wall" unique_id=1692083980]
+position = Vector2(359.75, 80)
+shape = SubResource("SegmentShape2D_20pc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/wall/CollisionShape2D" unique_id=26189530]
+position = Vector2(0.25, -1.499999)
+scale = Vector2(27.9, 0.34999993)
+texture = ExtResource("7_5vvyt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/wall" unique_id=2013073776]
+position = Vector2(361, 1200)
+shape = SubResource("SegmentShape2D_5vvyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/wall/CollisionShape2D2" unique_id=105398060]
+position = Vector2(0.25, -1.499999)
+scale = Vector2(27.9, 0.34999993)
+texture = ExtResource("7_5vvyt")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=230211435]
 position = Vector2(0, -1)
