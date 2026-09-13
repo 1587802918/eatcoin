@@ -19,6 +19,7 @@ public partial class Background : Node2D
 			Vector2 to = new Vector2(x,totalHeight);
 			DrawLine(from,to,LineColor,LineThickness);
 		}
+		
 		for(int i=0;i<=GridHeight;i++){
 			float y = i * CellSize.Y;
 			Vector2 from = new Vector2(0,y);
