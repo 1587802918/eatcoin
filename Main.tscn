@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3bufadclo2a1" path="res://Main.cs" id="1_fos0i"]
 [ext_resource type="Texture2D" uid="uid://c7bporki11yic" path="res://Background.png" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://djey2d7ensb2f" path="res://Coin.tscn" id="2_lgr22"]
+[ext_resource type="PackedScene" uid="uid://vdjlbnk72kbg" path="res://Order.tscn" id="3_c6i3y"]
 [ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ysl8epobjtvq" path="res://WWM.PNG" id="8_trn2v"]
 [ext_resource type="AudioStream" uid="uid://chxcy535loclp" path="res://wwm_audio.wav" id="10_20pc6"]
 [ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameOverUi.cs" id="10_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://co16d4mn6uamm" path="res://WWM_Confused.PNG" id="13_c2ibq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -104,9 +106,46 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ibq"]
 size = Vector2(75, 76)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4qnp"]
+atlas = ExtResource("13_c2ibq")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpfj3"]
+atlas = ExtResource("13_c2ibq")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc1dx"]
+atlas = ExtResource("13_c2ibq")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjvhd"]
+atlas = ExtResource("13_c2ibq")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifow5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4qnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpfj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc1dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjvhd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="main" type="Node2D" unique_id=618452259]
 script = ExtResource("1_fos0i")
 _coinScene = ExtResource("2_lgr22")
+_orderScene = ExtResource("3_c6i3y")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=325089071]
 position = Vector2(360, 640)
@@ -174,14 +213,16 @@ position = Vector2(0, -1)
 stream = ExtResource("7_lgr22")
 autoplay = true
 
-[node name="WWMan" type="CharacterBody2D" parent="." unique_id=119231293 node_paths=PackedStringArray("Player")]
+[node name="WWMan" type="CharacterBody2D" parent="." unique_id=119231293 node_paths=PackedStringArray("Player", "_wwmanSprite", "_wwman_confusedSprite")]
 position = Vector2(199, 202)
 script = ExtResource("8_03owx")
 Player = NodePath("../CoinMan")
+_wwmanSprite = NodePath("WWMan")
+_wwman_confusedSprite = NodePath("WWMan_Confused")
 
 [node name="WWMan" type="AnimatedSprite2D" parent="WWMan" unique_id=1607116469]
-position = Vector2(1, 0)
-scale = Vector2(1, 0.975)
+position = Vector2(1.0000061, -1.9999979)
+scale = Vector2(0.9500002, 0.9250001)
 sprite_frames = SubResource("SpriteFrames_wvhbo")
 autoplay = "default"
 frame_progress = 0.5491235
@@ -192,6 +233,14 @@ shape = SubResource("RectangleShape2D_c2ibq")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WWMan" unique_id=596771029]
 stream = ExtResource("10_20pc6")
+
+[node name="WWMan_Confused" type="AnimatedSprite2D" parent="WWMan" unique_id=1748314094]
+position = Vector2(1.0000026, -2.0000014)
+scale = Vector2(0.95000005, 0.9250001)
+sprite_frames = SubResource("SpriteFrames_ifow5")
+autoplay = "default"
+frame = 1
+frame_progress = 0.18776977
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=185254367]
 visible = false

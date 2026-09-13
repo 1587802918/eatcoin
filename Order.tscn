@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://vdjlbnk72kbg"]
+
+[ext_resource type="Script" uid="uid://bpwvyftr3j27q" path="res://Order.cs" id="1_fwj2c"]
+
+[node name="Order" type="Node2D" unique_id=1583456352 node_paths=PackedStringArray("_yesButton", "_noButton")]
+script = ExtResource("1_fwj2c")
+_yesButton = NodePath("CanvasLayer/Panel/Yes")
+_noButton = NodePath("CanvasLayer/Panel/No")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1914182466]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1474902546]
+offset_right = 718.0
+offset_bottom = 409.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1637153559]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 125.0
+offset_right = 497.0
+offset_bottom = 148.0
+text = "您有新的委托：金币*5，请问是否接取？"
+
+[node name="Yes" type="Button" parent="CanvasLayer/Panel" unique_id=823831923]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 270.0
+offset_right = 186.0
+offset_bottom = 297.0
+text = "接取"
+
+[node name="No" type="Button" parent="CanvasLayer/Panel" unique_id=620471678]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 273.0
+offset_right = 535.0
+offset_bottom = 304.0
+text = "取消"
