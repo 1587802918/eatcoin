@@ -19,11 +19,11 @@ public partial class Main : Node2D
 		AddChild(_orderTimer);
 		StartNextOrderTimer();
 
-		for(int i = 0; i < 9; i++)
+		for (int i = 0; i < 9; i++)
 		{
-			for(int j = 0;j < 16; j++)
+			for (int j = 0; j < 16; j++)
 			{
-				SpawnCoin(new Vector2(i*80+40, j*80+40));
+				SpawnCoin(new Vector2(i * 80 + 40, j * 80 + 40));
 			}
 		}
 	}

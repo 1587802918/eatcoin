@@ -2,12 +2,12 @@ shader_type canvas_item;
 uniform sampler2D screen_texture :hint_screen_texture;
 
 
-uniform float curvature : hint_range(0.0, 10.0) = 2.0;       // 屏幕弧度
-uniform float scanline_count : hint_range(0.0, 1080.0) = 480.0; // 扫描线密度
-uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.25;// 扫描线深浅
-uniform float chromatic_aberration : hint_range(0.0, 0.02) = 0.003; // 色差强度
+uniform float curvature : hint_range(0.0, 10.0) = 0.50;       // 屏幕弧度
+uniform float scanline_count : hint_range(0.0, 1080.0) = 240.0; // 扫描线密度
+uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.12;// 扫描线深浅
+uniform float chromatic_aberration : hint_range(0.0, 0.02) = 0.001; // 色差强度
 uniform float vignette_intensity : hint_range(0.0, 2.0) = 0.1;  // 暗角深浅
-uniform float noise_intensity : hint_range(0.0, 0.2) = 0.03;    // 噪点强度
+uniform float noise_intensity : hint_range(0.0, 0.2) = 0.01;    // 噪点强度
 
 
 float random(vec2 uv)
@@ -18,7 +18,7 @@ float random(vec2 uv)
 vec2 curve(vec2 uv){
 	vec2 delta = uv - 0.5;
 	float delta2 = dot(delta, delta);
-    vec2 delta_offset = delta * (1.0+ delta2 * curvature * 0.1);
+    vec2 delta_offset = delta * (1.0+ delta2 * curvature * 0.01);
     return delta_offset + 0.5;
 }
 
@@ -46,7 +46,7 @@ void fragment() {
 
         // 4. 四周暗角 (Vignette)
         vec2 vig_uv = curved_uv * (1.0 - curved_uv.yx);
-        float vig = vig_uv.x * vig_uv.y * 15.0;
+        float vig = vig_uv.x * vig_uv.y * 100.0;
         vig = clamp(pow(vig, vignette_intensity), 0.0, 1.0);
         color *= vig;
 

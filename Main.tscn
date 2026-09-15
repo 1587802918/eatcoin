@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
+[ext_resource type="Shader" uid="uid://cem3h46g58vdj" path="res://Flow.gdshader" id="5_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://dtymlqpl66yh" path="res://wall.png" id="7_5vvyt"]
 [ext_resource type="AudioStream" uid="uid://bevbbu2c6thfd" path="res://BGM.wav" id="7_lgr22"]
 [ext_resource type="Script" uid="uid://5ket2k4vrt6p" path="res://WwMan.cs" id="8_03owx"]
@@ -15,6 +16,15 @@
 [ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameOverUi.cs" id="10_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://co16d4mn6uamm" path="res://WWM_Confused.PNG" id="13_c2ibq"]
 [ext_resource type="Shader" uid="uid://bqkat031rbdhj" path="res://CRT.gdshader" id="15_j4qnp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ibjym"]
+shader = ExtResource("5_fpfj3")
+shader_parameter/color_light = Color(0.6200527, 0.26073667, 0.74458456, 1)
+shader_parameter/color_dark = Color(0.42727765, 0.23653904, 0.6670231, 1)
+shader_parameter/speed = 0.8
+shader_parameter/scale = 8.0
+shader_parameter/threshold = 0.5
+shader_parameter/sharpness = 0.02
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -160,6 +170,18 @@ _orderScene = ExtResource("3_c6i3y")
 [node name="Background" type="Sprite2D" parent="." unique_id=325089071]
 position = Vector2(360, 640)
 texture = ExtResource("2_3dxm6")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1634444975]
+material = SubResource("ShaderMaterial_ibjym")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -640.0
+offset_right = -360.0
+offset_bottom = -640.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
 script = ExtResource("3_lgr22")
