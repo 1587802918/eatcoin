@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://chxcy535loclp" path="res://wwm_audio.wav" id="10_20pc6"]
 [ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameOverUi.cs" id="10_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://co16d4mn6uamm" path="res://WWM_Confused.PNG" id="13_c2ibq"]
+[ext_resource type="Shader" uid="uid://bqkat031rbdhj" path="res://CRT.gdshader" id="15_j4qnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
@@ -142,6 +143,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvhbo"]
+shader = ExtResource("15_j4qnp")
+shader_parameter/curvature = 2.0
+shader_parameter/scanline_count = 240.0
+shader_parameter/scanline_intensity = 0.25
+shader_parameter/chromatic_aberration = 0.003
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/noise_intensity = 0.03
+
 [node name="main" type="Node2D" unique_id=618452259]
 script = ExtResource("1_fos0i")
 _coinScene = ExtResource("2_lgr22")
@@ -265,3 +275,13 @@ offset_top = 54.0
 offset_right = 71.0
 offset_bottom = 85.0
 text = "再来一次吧"
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=741630212]
+
+[node name="CRTFilter" type="ColorRect" parent="PostProcess" unique_id=45227505]
+material = SubResource("ShaderMaterial_wvhbo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
