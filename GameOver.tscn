@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cwifpntry5f3y"]
+
+[ext_resource type="Script" uid="uid://dbu4diyjtgymm" path="res://GameOver.cs" id="1_40baj"]
+
+[node name="Node2D" type="Node2D" unique_id=1147347242]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2055392226 node_paths=PackedStringArray("_restartButton")]
+script = ExtResource("1_40baj")
+_restartButton = NodePath("Panel/restart")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=808787682]
+offset_left = 1.0
+offset_top = 412.0
+offset_right = 719.0
+offset_bottom = 821.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=946641089]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 171.0
+offset_right = 586.0
+offset_bottom = 194.0
+text = "你输了"
+
+[node name="restart" type="Button" parent="CanvasLayer/Panel" unique_id=131497167]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 270.0
+offset_right = 186.0
+offset_bottom = 297.0
+text = "再来一次！"
+
+[node name="No" type="Button" parent="CanvasLayer/Panel" unique_id=428389133]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 273.0
+offset_right = 535.0
+offset_bottom = 304.0
+text = "哦"

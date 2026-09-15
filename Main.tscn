@@ -13,9 +13,10 @@
 [ext_resource type="Script" uid="uid://5ket2k4vrt6p" path="res://WwMan.cs" id="8_03owx"]
 [ext_resource type="Texture2D" uid="uid://ysl8epobjtvq" path="res://WWM.PNG" id="8_trn2v"]
 [ext_resource type="AudioStream" uid="uid://chxcy535loclp" path="res://wwm_audio.wav" id="10_20pc6"]
-[ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameOverUi.cs" id="10_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://co16d4mn6uamm" path="res://WWM_Confused.PNG" id="13_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://cwifpntry5f3y" path="res://GameOver.tscn" id="13_sc1dx"]
 [ext_resource type="Shader" uid="uid://bqkat031rbdhj" path="res://CRT.gdshader" id="15_j4qnp"]
+[ext_resource type="Script" uid="uid://dduslb28efwr6" path="res://GameWinUi.cs" id="17_sc1dx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibjym"]
 shader = ExtResource("5_fpfj3")
@@ -262,6 +263,7 @@ script = ExtResource("8_03owx")
 Player = NodePath("../CoinMan")
 _wwmanSprite = NodePath("WWMan")
 _wwman_confusedSprite = NodePath("WWMan_Confused")
+_GameFailScene = ExtResource("13_sc1dx")
 
 [node name="WWMan" type="AnimatedSprite2D" parent="WWMan" unique_id=1607116469]
 position = Vector2(1.0000061, -1.9999979)
@@ -285,23 +287,23 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.18776977
 
-[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=185254367]
+[node name="GameWinUI" type="CanvasLayer" parent="." unique_id=185254367]
 visible = false
-script = ExtResource("10_wkp8b")
+script = ExtResource("17_sc1dx")
 
-[node name="Panel" type="Panel" parent="GameOverUI" unique_id=1064361567]
+[node name="Panel" type="Panel" parent="GameWinUI" unique_id=1064361567]
 offset_left = 333.0
 offset_top = 472.0
 offset_right = 373.0
 offset_bottom = 512.0
 
-[node name="Label" type="Label" parent="GameOverUI/Panel" unique_id=770883797]
+[node name="Label" type="Label" parent="GameWinUI/Panel" unique_id=770883797]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "算你过关"
 
-[node name="Button" type="Button" parent="GameOverUI/Panel" unique_id=1092210400]
+[node name="Button" type="Button" parent="GameWinUI/Panel" unique_id=1092210400]
 layout_mode = 0
 offset_left = -17.0
 offset_top = 54.0

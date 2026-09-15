@@ -24,8 +24,8 @@ public partial class Coin : Area2D
 			int remainingCoins = GetTree().GetNodesInGroup("coins").Count;
 			if(remainingCoins == 0)
 			{
-				var gameOverUi = GetTree().Root.FindChild("GameOverUI", true, false) as GameOverUi;
-				gameOverUi.ShowGameOver();
+				var gameOverUi = GetTree().Root.FindChild("GameOverUI", true, false) as GameWinUi;
+				gameOverUi.ShowGameWin();
 			}
 			var sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 			sfx.Finished += QueueFree;

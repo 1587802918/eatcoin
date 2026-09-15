@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class GameOverUi : CanvasLayer
+public partial class GameWinUi : CanvasLayer
 {
 	private Button _restartButton;
 
@@ -13,7 +13,7 @@ public partial class GameOverUi : CanvasLayer
 	}
 
 
-	public void ShowGameOver()
+	public void ShowGameWin()
 	{
 		Visible = true;
 		GetTree().Paused = true;
