@@ -26,6 +26,15 @@ shader_parameter/scale = 8.0
 shader_parameter/threshold = 0.5
 shader_parameter/sharpness = 0.02
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvhbo"]
+shader = ExtResource("15_j4qnp")
+shader_parameter/curvature = 2.0
+shader_parameter/scanline_count = 240.0
+shader_parameter/scanline_intensity = 0.25
+shader_parameter/chromatic_aberration = 0.003
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/noise_intensity = 0.03
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
 region = Rect2(0, 0, 80, 80)
@@ -153,15 +162,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvhbo"]
-shader = ExtResource("15_j4qnp")
-shader_parameter/curvature = 2.0
-shader_parameter/scanline_count = 240.0
-shader_parameter/scanline_intensity = 0.25
-shader_parameter/chromatic_aberration = 0.003
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/noise_intensity = 0.03
-
 [node name="main" type="Node2D" unique_id=618452259]
 script = ExtResource("1_fos0i")
 _coinScene = ExtResource("2_lgr22")
@@ -185,6 +185,14 @@ grow_vertical = 2
 
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
 script = ExtResource("3_lgr22")
+
+[node name="CRTFilter" type="ColorRect" parent="." unique_id=45227505]
+material = SubResource("ShaderMaterial_wvhbo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085 groups=["player"]]
 position = Vector2(201, 606)
@@ -299,11 +307,3 @@ offset_bottom = 85.0
 text = "再来一次吧"
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=741630212]
-
-[node name="CRTFilter" type="ColorRect" parent="PostProcess" unique_id=45227505]
-material = SubResource("ShaderMaterial_wvhbo")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
