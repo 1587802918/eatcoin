@@ -26,15 +26,6 @@ shader_parameter/scale = 8.0
 shader_parameter/threshold = 0.5
 shader_parameter/sharpness = 0.02
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvhbo"]
-shader = ExtResource("15_j4qnp")
-shader_parameter/curvature = 2.0
-shader_parameter/scanline_count = 240.0
-shader_parameter/scanline_intensity = 0.25
-shader_parameter/chromatic_aberration = 0.003
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/noise_intensity = 0.03
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
 atlas = ExtResource("5_03owx")
 region = Rect2(0, 0, 80, 80)
@@ -58,7 +49,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
-size = Vector2(76, 76)
+size = Vector2(60, 58)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvhbo"]
+shader = ExtResource("15_j4qnp")
+shader_parameter/curvature = 2.0
+shader_parameter/scanline_count = 240.0
+shader_parameter/scanline_intensity = 0.25
+shader_parameter/chromatic_aberration = 0.003
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/noise_intensity = 0.03
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(717, 22)
@@ -186,29 +186,32 @@ grow_vertical = 2
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1060042224]
 script = ExtResource("3_lgr22")
 
-[node name="CRTFilter" type="ColorRect" parent="." unique_id=45227505]
-material = SubResource("ShaderMaterial_wvhbo")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="CoinMan" type="CharacterBody2D" parent="." unique_id=337793085 groups=["player"]]
 position = Vector2(201, 606)
 up_direction = Vector2(0.009999501, 0.99995005)
 script = ExtResource("4_trn2v")
 
 [node name="CoinMan" type="AnimatedSprite2D" parent="CoinMan" unique_id=1022106614]
-position = Vector2(1, -7)
+position = Vector2(-1.0000013, -7.0000086)
+scale = Vector2(0.8625001, 0.81249994)
 sprite_frames = SubResource("SpriteFrames_kdubu")
 autoplay = "default"
 frame = 1
 frame_progress = 0.69148123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinMan" unique_id=1355855001]
-position = Vector2(-1, -6)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=741630212]
+
+[node name="CRTFilter" type="ColorRect" parent="PostProcess" unique_id=45227505]
+material = SubResource("ShaderMaterial_wvhbo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=882143864]
 
@@ -305,5 +308,3 @@ offset_top = 54.0
 offset_right = 71.0
 offset_bottom = 85.0
 text = "再来一次吧"
-
-[node name="PostProcess" type="CanvasLayer" parent="." unique_id=741630212]

@@ -5,7 +5,7 @@ uniform vec4 color_light : source_color = vec4(0.58, 0.28, 0.78, 1.0); // 亮紫
 uniform vec4 color_dark  : source_color = vec4(0.32, 0.12, 0.48, 1.0); // 深紫
 
 // 控制参数
-uniform float speed : hint_range(0.01, 2.0) = 0.15;       // 流动速度（色块建议偏慢，更有熔岩/暗流感）
+uniform float speed : hint_range(0.01, 2.0,0.001) = 0.015;       // 流动速度（色块建议偏慢，更有熔岩/暗流感）
 uniform float scale : hint_range(1.0, 20.0) = 4.5;        // 块状大小（越小块面越大）
 uniform float threshold : hint_range(0.0, 1.0) = 0.5;     // 亮暗色块的面积占比
 uniform float sharpness : hint_range(0.001, 0.2) = 0.02;  // 边缘硬度（越小边缘越硬，切出几何感）
@@ -47,7 +47,7 @@ float fbm(vec2 p) {
 
 void fragment() {
     vec2 uv = UV * scale;
-    float t = TIME * speed;
+    float t = 0.2 * TIME * speed;
 
     // 核心修改：让基础偏移向量在 X 和 Y 上同时保持正方向推进（产生从左上往右下的移动趋势）
     vec2 flow_dir = vec2(t, t);
