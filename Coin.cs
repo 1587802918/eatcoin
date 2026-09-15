@@ -13,7 +13,7 @@ public partial class Coin : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body is Coinman coinman )
+		if (body is Coinman coinman)
 		{
 			//coinman.AddScore(Value);
 
@@ -22,17 +22,18 @@ public partial class Coin : Area2D
 			Hide();
 			RemoveFromGroup("coins");
 			int remainingCoins = GetTree().GetNodesInGroup("coins").Count;
-			if(remainingCoins == 0)
+			if (remainingCoins == 0)
 			{
-				var gameOverUi = GetTree().Root.FindChild("GameOverUI", true, false) as GameWinUi;
-				gameOverUi.ShowGameWin();
+				var gameWinUi = GetTree().Root.FindChild("GameWinUI", true, false) as GameWinUi;
+				gameWinUi.ShowGameWin();
 			}
 			var sfx = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 			sfx.Finished += QueueFree;
 			sfx.Play();
-			
 
-		}else if(body is WwMan wwman)
+
+		}
+		else if (body is WwMan wwman)
 		{
 			SetDeferred(Area2D.PropertyName.Monitoring, false);
 			Hide();
@@ -40,5 +41,5 @@ public partial class Coin : Area2D
 		}
 	}
 
-	
+
 }
