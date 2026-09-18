@@ -3,9 +3,9 @@ uniform sampler2D screen_texture :hint_screen_texture;
 
 
 uniform float curvature : hint_range(0.0, 10.0) = 0.50;       // 屏幕弧度
-uniform float scanline_count : hint_range(0.0, 1080.0) = 200.0; // 扫描线密度
-uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.12;// 扫描线深浅
-uniform float chromatic_aberration : hint_range(0.0, 0.02) = 0.001; // 色差强度
+uniform float scanline_count : hint_range(0.0, 1080.0) = 1000.0; // 扫描线密度
+uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.02;// 扫描线深浅
+uniform float chromatic_aberration : hint_range(0.0, 0.02) = 0.0001; // 色差强度
 uniform float vignette_intensity : hint_range(0.0, 2.0) = 0.1;  // 暗角深浅
 uniform float noise_intensity : hint_range(0.0, 0.2) = 0.01;    // 噪点强度
 
