@@ -8,7 +8,7 @@ public partial class Coinman : CharacterBody2D
 
 	[Export] public float CellSize = 80.0f;
 
-	[Export] public int DashCells = 5;
+	[Export] public int DashCells = 3;
 	[Export] public float DashMultiplier = 5.0f;
 
 	private AnimatedSprite2D _sprite;

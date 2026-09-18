@@ -6,17 +6,22 @@ public partial class Main : Node2D
 	[Export] private PackedScene _coinScene;
 	[Export] private PackedScene _orderScene;
 
+	[Export] private PackedScene _pausedScene;
+
 	private Timer _orderTimer;
 	private readonly RandomNumberGenerator _rng = new RandomNumberGenerator();
 
 
 	public override void _Ready()
 	{
+		Node pausedInstance = _pausedScene.Instantiate();
+		AddChild(pausedInstance);
 		_rng.Randomize();
 		_orderTimer = new Timer();
 		_orderTimer.OneShot = true;
 		_orderTimer.Timeout += OnOrderTimerTimeout;
 		AddChild(_orderTimer);
+
 		StartNextOrderTimer();
 
 		for (int i = 0; i < 9; i++)
@@ -52,5 +57,6 @@ public partial class Main : Node2D
 		_orderTimer.Start();
 
 	}
+
 
 }

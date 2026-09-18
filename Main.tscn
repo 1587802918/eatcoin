@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djey2d7ensb2f" path="res://Coin.tscn" id="2_lgr22"]
 [ext_resource type="PackedScene" uid="uid://vdjlbnk72kbg" path="res://Order.tscn" id="3_c6i3y"]
 [ext_resource type="Script" uid="uid://4otli4ocoyvr" path="res://Background.cs" id="3_lgr22"]
+[ext_resource type="PackedScene" uid="uid://c1ovqie8iqkvl" path="res://Paused.tscn" id="4_kjvhd"]
 [ext_resource type="Script" uid="uid://lrbh4lnl1x2v" path="res://Coinman.cs" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dela8iseqyv31" path="res://Coinman.png" id="5_03owx"]
 [ext_resource type="Shader" uid="uid://cem3h46g58vdj" path="res://Flow.gdshader" id="5_fpfj3"]
@@ -167,6 +168,7 @@ animations = [{
 script = ExtResource("1_fos0i")
 _coinScene = ExtResource("2_lgr22")
 _orderScene = ExtResource("3_c6i3y")
+_pausedScene = ExtResource("4_kjvhd")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=325089071]
 position = Vector2(360, 640)
